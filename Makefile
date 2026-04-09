@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: lderks <lderks@student.codam.nl>             +#+                      #
-#                                                    +#+                       #
-#    Created: 2026/03/10 16:21:44 by doda-cun      #+#    #+#                  #
-#    Updated: 2026/04/06 18:07:13 by lderks        ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/03/10 16:21:44 by doda-cun          #+#    #+#              #
+#    Updated: 2026/04/09 18:28:35 by doda-cun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ_DIR = obj/
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror -I$(INC) -I$(MLX_DIR) -I$(LIBFT_DIR)
 
-SRCS = main.c $(shell find $(SRC_DIR) -name "*.c")
+SRCS = main.c $(shell find parser/ render/ shape/ intersections/ rays/ vectors/ -name "*.c")
 OBJS = $(SRCS:%.c=$(OBJ_DIR)%.o)
 
 all: $(LIBFT) $(MLX) $(NAME)

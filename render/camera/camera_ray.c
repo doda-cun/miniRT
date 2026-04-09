@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   camera_ray.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/06 19:22:42 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/06 19:25:02 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   camera_ray.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/06 19:22:42 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/09 18:43:49 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
+#include "vectors.h"
 
 t_ray   camera_make_ray(t_camera *cam, int x, int y)
 {

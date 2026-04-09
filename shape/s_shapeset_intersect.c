@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   s_shapeset_intersect.c                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/02 17:11:05 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/02 17:17:17 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   s_shapeset_intersect.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 17:11:05 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/09 18:50:55 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
+#include "vectors.h"
+
 
 int shapeset_full_intersect(t_shapeset *set, t_intersection *intersection)
 {

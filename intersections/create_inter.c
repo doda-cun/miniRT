@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "intersections.h"
+#include "rays.h"
 
 t_intersection i_create_default()
 {
 	t_intersection	intersection;
-	
+
 	intersection.ray = ray_c_default();
 	intersection.length = RAY_T_MAX;
 	intersection.shape = NO_HIT;
@@ -25,7 +26,7 @@ t_intersection i_create_default()
 t_intersection i_create_from_ray(t_ray ray)
 {
 	t_intersection	intersection;
-	
+
 	intersection.ray = ray_c_new(ray.origin, ray.direction, ray.t_max);
 	intersection.length = RAY_T_MAX;
 	intersection.shape = NO_HIT;

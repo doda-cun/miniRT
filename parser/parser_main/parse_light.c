@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_light.c                                      :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/12 16:29:06 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/09 14:40:07 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_light.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/12 16:29:06 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/09 18:35:10 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	parse_light(char *line, t_scene *scene)
 	check_ratio(scene->light.brightness);
 	scene->light.color = parse_color(parts[3]);
 	free_split(parts);
-	scene->has_light = 1;
+	scene->parser.has_light = 1;
 }

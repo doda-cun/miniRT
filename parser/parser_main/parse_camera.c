@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_camera.c                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/10 18:19:54 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/09 14:39:48 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_camera.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 18:19:54 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/09 18:35:03 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	parse_camera(char *line, t_scene *scene)
 	scene->camera.fov = safe_atoi(parts[3]);
 	check_fov(scene->camera.fov);
 	free_split(parts);
-	scene->has_camera = 1;
+	scene->parser.has_camera = 1;
 }

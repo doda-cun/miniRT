@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   get_color.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/24 16:08:22 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/09 14:44:56 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   get_color.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/24 16:08:22 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/09 18:46:25 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+// #include "render.h"
 
-t_color	get_color(t_scene *scene, t_ray ray, double t, int i)
-{
-	t_vector	hit_point;
-	t_vector	normal;
-	t_vector	light_dir;
-	double		diffuse;
+// t_color	get_color(t_scene *scene, t_ray ray, double t, int i)
+// {
+// 	t_vector	hit_point;
+// 	t_vector	normal;
+// 	t_vector	light_dir;
+// 	double		diffuse;
 
-	hit_point = v_new_addition(ray.origin, vec3_scale(ray.dir, t));
-	normal = v_normalized(v_new_subtraction(hit_point, scene->sphere[i].centre));
-	light_dir = v_normalized(v_new_substraction(scene->light.pos, hit_point));
-	diffuse = dot_product(normal, light_dir) * scene->light.brightness;
-	if (diffuse < 0)
-		diffuse = 0;
-	return (apply_lighting(scene->sphere[i].color, scene->ambient, diffuse));
-}
+// 	hit_point = v_new_addition(ray.origin, vec3_scale(ray.dir, t));
+// 	normal = v_normalized(v_new_subtraction(hit_point, scene->sphere[i].centre));
+// 	light_dir = v_normalized(v_new_substraction(scene->light.pos, hit_point));
+// 	diffuse = dot_product(normal, light_dir) * scene->light.brightness;
+// 	if (diffuse < 0)
+// 		diffuse = 0;
+// 	return (apply_lighting(scene->sphere[i].color, scene->ambient, diffuse));
+// }
 
 
 

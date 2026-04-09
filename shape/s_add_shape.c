@@ -6,11 +6,13 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:29:03 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/09 17:44:12 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/09 18:51:33 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
+#include "vectors.h"
+
 
 void	add_shapeset(t_shapeset *shapeset, t_shape *shape)
 {

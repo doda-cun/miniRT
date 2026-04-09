@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   camera_init.c                                      :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/03 18:18:42 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/09 16:35:26 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   camera_init.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/03 18:18:42 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/09 18:43:42 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
+#include "vectors.h"
 
 void    camera_init(t_camera *cam)
 {
@@ -18,7 +19,7 @@ void    camera_init(t_camera *cam)
 
     cam->dir = v_normalized(cam->dir);
     world_up = vec_c_xyz(0.0f, 1.0f, 0.0f);								//upguide
-    cam->right = v_normalized(cross_product(cam->dir, world_up));		//right and left 
+    cam->right = v_normalized(cross_product(cam->dir, world_up));		//right and left
     cam->up = cross_product(cam->right, cam->dir);						// true up vector
     cam->half_h = tanf(cam->fov * M_PI / 180.0f / 2.0f);				//half the height * (convertsion to radian)
 

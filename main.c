@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/09 17:31:00 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/09 14:39:09 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/09 17:31:00 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/09 18:29:32 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "render.h"
 #include "parser.h"
+#include "shape.h"
 
 int	main(int argc, char **argv)
 {
@@ -52,10 +53,10 @@ int	main(int argc, char **argv)
 
 // -> MLX SETUP
 
-// MLX's mlx_pixel_put is notoriously slow when called per-pixel in a loop because it flushes to the display each call. 
-// For a raytracer this will be very visible. 
-// The standard solution is to use an image buffer instead — mlx_new_image; 
-// write pixels with mlx_put_pixel_to_image into an off-screen buffer; 
-// then display the whole frame with mlx_put_image_to_window once done. 
+// MLX's mlx_pixel_put is notoriously slow when called per-pixel in a loop because it flushes to the display each call.
+// For a raytracer this will be very visible.
+// The standard solution is to use an image buffer instead — mlx_new_image;
+// write pixels with mlx_put_pixel_to_image into an off-screen buffer;
+// then display the whole frame with mlx_put_image_to_window once done.
 
 // That said, for getting something on screen initially, mlx_pixel_put works fine.

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   structs.h                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/09 15:10:00 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/03 13:37:05 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/09 18:49:43 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@
 
 # define M_PI 3.14159265358979323846
 
-typedef struct t_shape;
-typedef struct t_intersection;
-typedef struct t_ray;
+typedef struct s_shape t_shape;
+typedef struct s_intersection t_intersection;
+typedef struct s_ray t_ray;
 
-typedef int (*t_full_intersect_fp)(struct t_shape *shape, 
+typedef int (*t_full_intersect_fp)(t_shape *shape,
 				t_intersection *intersection);
-typedef int (*t_single_intersect_fp)(struct t_shape *shape, const t_ray *ray);
+typedef int (*t_single_intersect_fp)(t_shape *shape, const t_ray *ray);
 
 typedef struct s_mlx
 {
@@ -180,5 +180,7 @@ typedef struct s_scene
 	t_plane		plane[10];
 	t_cylinder	cylinder[20];	// what amount should this be?
 }	t_scene;
+
+
 
 #endif

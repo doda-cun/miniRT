@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_ambient.c                                    :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/10 18:12:08 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/09 14:37:52 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_ambient.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 18:12:08 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/09 18:34:45 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	parse_ambient(char *line, t_scene *scene)
 	check_ratio(scene->ambient.ratio);
 	scene->ambient.color = parse_color(parts[2]);
 	free_split(parts);
-	scene->has_ambient = 1;
+	scene->parser.has_ambient = 1;
 }
