@@ -1,0 +1,184 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   structs.h                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
+/*   Updated: 2026/04/09 15:10:00 by lderks        ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef STRUCTS_H
+# define STRUCTS_H
+
+#include <stdlib.h>
+#include <math.h>
+
+# define WIDTH  1280
+# define HEIGHT 720
+
+# define RAY_T_MIN 0.001f
+# define RAY_T_MAX 1.0e30f
+
+# define NO_HIT NULL
+
+# define MAX_SHAPES 50
+
+# define M_PI 3.14159265358979323846
+
+typedef struct t_shape;
+typedef struct t_intersection;
+typedef struct t_ray;
+
+typedef int (*t_full_intersect_fp)(struct t_shape *shape, 
+				t_intersection *intersection);
+typedef int (*t_single_intersect_fp)(struct t_shape *shape, const t_ray *ray);
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+}	t_mlx;
+
+typedef struct s_parser		//new struct still needs intergrating!
+{
+	int	sphere_count;
+	int	plane_count;
+	int	cylinder_count;
+	int	has_ambient;
+	int	has_camera;
+	int	has_light;
+	int	shape_count;		//added struct for overall count shapes
+}	t_parser;
+
+typedef struct s_color
+{
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
+
+typedef struct s_vector
+{
+	float	x;
+	float	y;
+	float	z;
+}	t_vector;
+
+typedef t_vector t_point;		//for Code-Readability
+
+typedef	struct s_ray
+{
+	t_point		origin;
+	t_vector	direction;
+	float		t_max;			//maximum length of the ray
+}	t_ray;
+
+typedef struct s_intersection
+{
+	t_ray	ray;
+	float	length;				// -> t
+	t_shape	*shape;
+	t_color	color;
+}	t_intersection;
+
+typedef enum s_shape_type
+{
+	PLANE = 1,
+	SPHERE = 2,
+	CYLINDER = 3,
+}	t_shape_type;
+
+typedef struct s_shape
+{
+	int						type;
+	t_full_intersect_fp		full_intersection;
+	t_single_intersect_fp	single_intersection;
+}	t_shape;
+
+typedef struct s_shapeset
+{
+	t_shape		*shapes[MAX_SHAPES];
+	int			count;
+}	t_shapeset;
+
+typedef struct s_plane
+{
+	t_shape		shape;
+	t_point		point;		//any point on the plane
+	t_vector	normal; 		// normalized [-1,1]
+	t_color		color;
+}	t_plane;
+
+typedef struct s_sphere
+{
+	t_shape		shape;
+	t_point		centre;
+	float		radius;			// 1/2 * the diameter
+	t_color		color;
+}	t_sphere;
+
+typedef struct s_cylinder
+{
+	t_shape	shape;
+	t_point	center;
+	t_point	axis;
+	float	diameter;			//float or double?
+	float	height;				//float or double?
+	t_color	color;
+}	t_cylinder;
+
+typedef struct s_screen_coordinate
+{
+	float	x;					//Horizontal 2D coordinate - x
+	float	y;					//Vertical 2D coordinate - y
+}	t_screen_coordinate;		//Not really a vector -> diff file?
+
+
+// NEED TO BE INTEGRATED										DO IT
+
+/* A 0.2 255,255,255 — only one per scene */
+typedef struct s_ambient
+{
+	double	ratio; 			// [0.0, 1.0]
+	t_color	color;
+}	t_ambient;
+
+/* stores where the camera is, where it's pointing, and the FOV.
+we need this to know how to generate the rays.
+only one per scene */
+typedef struct t_camera
+{
+	t_point		pos;
+	t_vector	dir;
+	t_vector	right;
+	t_vector	up;
+	int			fov; 		// [0, 180] field of view
+	float		half_h;		// height scaling unit - tan(fov/2)
+	float		half_w;		// width scaling unit - half_h * aspect ratio
+}	t_camera;
+
+/*only one per scene*/
+typedef struct s_light
+{
+	t_point	pos;
+	double	brightness; 	// [0.0, 1.0]
+	t_color	color;
+
+}	t_light;
+
+typedef struct s_scene
+{
+	t_parser	parser;
+	t_ambient	ambient;
+	t_camera	camera;
+	t_light		light;
+	t_shapeset	shapeset;
+	t_sphere	sphere[20];		// chosen for tetsing, change!!
+	t_plane		plane[10];
+	t_cylinder	cylinder[20];	// what amount should this be?
+}	t_scene;
+
+#endif
