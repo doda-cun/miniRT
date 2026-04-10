@@ -6,12 +6,13 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 14:01:34 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/09 18:51:00 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/10 18:35:30 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
 #include "vectors.h"
+#include <stdio.h>
 
 
 int	sphere_full_intersect(t_shape *shape, t_intersection *intersection)

@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   render.c                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/10 16:26:04 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/06 19:59:28 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 16:26:04 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/10 18:40:15 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "render.h"
 #include "shape.h"
+#include <stdio.h>
+
 
 //void	render(t_mlx *mlx, t_scene *scene)
 //{
@@ -52,6 +54,13 @@ void    render(t_mlx *mlx, t_scene *scene)
     t_ray           ray;
     t_intersection  intersection;
 
+	t_ray test_ray;
+t_intersection test_inter;
+
+test_ray.origin = (t_point){0, 0, 0};
+test_ray.direction = (t_vector){0, 0, 1};
+test_ray.t_max = RAY_T_MAX;
+test_inter = i_create_from_ray(test_ray);
     y = 0;
     while (y < HEIGHT)
     {
@@ -61,8 +70,10 @@ void    render(t_mlx *mlx, t_scene *scene)
             ray = camera_make_ray(&scene->camera, x, y);
             intersection = i_create_from_ray(ray);
             if (shapeset_full_intersect(&scene->shapeset, &intersection))
+			{
                 mlx_pixel_put(mlx->mlx, mlx->win, x, y,
                     color_to_hex(intersection.color));
+			}
             x++;
         }
         y++;
