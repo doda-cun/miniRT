@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/13 13:52:17 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/13 16:34:29 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,19 @@ typedef struct s_cylinder
 	float	height;
 	t_color	color;
 }	t_cylinder;
+
+typedef struct s_cylinder_math
+{
+	t_vector	origin_to_base;
+	t_vector	v_perp;
+	t_vector	dp_perp;
+	float		a;
+	float		b;
+	float		c;
+	float		discriminant;
+	float		t_near;
+	float		t_far;
+}	t_cylinder_math;
 
 typedef struct s_screen_coordinate
 {
