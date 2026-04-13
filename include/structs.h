@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/10 16:01:39 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/13 13:52:17 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 typedef struct s_shape t_shape;
 typedef struct s_intersection t_intersection;
 typedef struct s_ray t_ray;
+typedef struct s_scene t_scene;
 
 typedef int (*t_full_intersect_fp)(t_shape *shape,
 				t_intersection *intersection);
@@ -82,6 +83,7 @@ typedef struct s_intersection
 	float	length;				// -> t
 	t_shape	*shape;
 	t_color	color;
+	t_scene	*scene;				// we need this to access light and ambient.
 }	t_intersection;
 
 typedef enum s_shape_type

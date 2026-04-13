@@ -6,12 +6,14 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 14:01:34 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/09 18:51:00 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/10 19:11:23 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
 #include "vectors.h"
+#include <stdio.h>
+#include "render.h"
 
 
 int	sphere_full_intersect(t_shape *shape, t_intersection *intersection)
@@ -42,7 +44,7 @@ int	sphere_full_intersect(t_shape *shape, t_intersection *intersection)
 		return (0);
 
 	intersection->shape = shape;
-	intersection->color = sphere->color;
+	intersection->color = get_sphere_color(sphere, intersection);
 
 	return (1);
 }									//fuctions need to be made norminette proof

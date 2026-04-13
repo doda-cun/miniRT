@@ -6,12 +6,13 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 14:01:06 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/09 18:50:42 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/10 19:18:50 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
 #include "vectors.h"
+#include "render.h"
 
 int	plane_full_intersect(t_shape *shape, t_intersection *intersection)
 {
@@ -33,7 +34,7 @@ int	plane_full_intersect(t_shape *shape, t_intersection *intersection)
 
 	intersection->length = length;
 	intersection->shape = shape;
-	intersection->color = plane->color;
+	intersection->color = get_plane_color(plane, intersection);
 	return (1);
 }
 

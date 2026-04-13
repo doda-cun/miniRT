@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 17:31:00 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/09 18:29:32 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/10 18:36:34 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "render.h"
 #include "parser.h"
 #include "shape.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -39,11 +40,9 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	parse_scene(argv[1], &scene);
-
 	camera_init(&scene.camera);
 	add_shapes_to_set(&scene);
 	render(&mlx, &scene);
-
 	mlx_key_hook(mlx.win, esc_key_hook, &mlx);
 	mlx_hook(mlx.win, 17, 0, close_window, &mlx); //17 code for the red X
 	mlx_loop(mlx.mlx);
