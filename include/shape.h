@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:03:28 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/13 18:14:32 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/13 18:57:33 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "structs.h"
 #include "intersections.h"
+#include "vectors.h"
+#include "rays.h"
 
 // typedef int (*t_full_intersect_fp)(struct t_shape *shape, t_intersection *intersection);
 // typedef int (*t_single_intersect_fp)(struct t_shape *shape, const t_ray *ray);
@@ -25,7 +27,11 @@ int		plane_single_intersect(t_shape *shape, const t_ray *ray);
 int		sphere_full_intersect(t_shape *shape, t_intersection *intersection);
 int		sphere_single_intersect(t_shape *shape, const t_ray *ray);
 int		shapeset_full_intersect(t_shapeset *set, t_intersection *intersection);
-int		shapeset_single_intersect(t_shapeset *set, const t_ray *ray);
+int     shapeset_single_intersect(t_shapeset *set, const t_ray *ray);
+void    set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
+                        t_cylinder_math *c_math);
+int     cylinder_full_intersect(t_shape *shape, t_intersection *intersection);
+int		cylinder_single_intersect(t_shape *shape, const t_ray *ray);
 
 
 // Setup
@@ -36,3 +42,4 @@ void	add_cylinder_to_set(t_scene *scene, int i);
 void	add_shapes_to_set(t_scene *scene);
 
 #endif
+
