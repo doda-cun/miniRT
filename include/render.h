@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 14:48:38 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/10 19:17:58 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/13 18:34:16 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_color	apply_ambient(t_color color, t_ambient ambient);
 t_color	apply_lighting(t_color color, t_ambient ambient, double diffuse);
 t_color	get_sphere_color(t_sphere *sphere, t_intersection *intersection);
 t_color	get_plane_color(t_plane *plane, t_intersection *intersection);
+int		is_in_shadow(t_scene *scene, t_point hit_point, t_vector normal);
 
-//t_color	get_color(t_scene *scene, t_ray ray, double t, int i);
 
 #endif

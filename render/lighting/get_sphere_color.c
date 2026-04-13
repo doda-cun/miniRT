@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 19:01:36 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/10 19:10:31 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/13 18:33:07 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ t_color	get_sphere_color(t_sphere *sphere, t_intersection *intersection)
 	light_dir = v_normalized(v_new_subtraction(
 				intersection->scene->light.pos, hit_point));
 	diffuse = dot_product(normal, light_dir)
-				* intersection->scene->light.brightness;
+		* intersection->scene->light.brightness;
 	if (diffuse < 0)
+		diffuse = 0;
+	if (is_in_shadow(intersection->scene, hit_point, normal))
 		diffuse = 0;
 	return (apply_lighting(sphere->color,
 			intersection->scene->ambient, diffuse));

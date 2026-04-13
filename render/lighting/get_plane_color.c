@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 19:12:44 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/10 19:19:10 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/13 18:33:56 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_color	get_plane_color(t_plane *plane, t_intersection *intersection)
 	diffuse = dot_product(normal, light_dir)
 				* intersection->scene->light.brightness;
 	if (diffuse < 0)
+		diffuse = 0;
+	if (is_in_shadow(intersection->scene, hit_point, plane->normal))
 		diffuse = 0;
 	return (apply_lighting(plane->color,
 			intersection->scene->ambient, diffuse));
