@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 13:37:05 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/09 18:49:43 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   structs.h                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
+/*   Updated: 2026/04/10 16:01:39 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ typedef struct s_shapeset
 typedef struct s_plane
 {
 	t_shape		shape;
-	t_point		point;		//any point on the plane
+	t_point		point;			//any point on the plane
 	t_vector	normal; 		// normalized [-1,1]
 	t_color		color;
 }	t_plane;
@@ -125,8 +125,8 @@ typedef struct s_cylinder
 	t_shape	shape;
 	t_point	center;
 	t_point	axis;
-	float	diameter;			//float or double?
-	float	height;				//float or double?
+	float	radius;				// 1/2 * the diameter
+	float	height;
 	t_color	color;
 }	t_cylinder;
 
@@ -137,7 +137,7 @@ typedef struct s_screen_coordinate
 }	t_screen_coordinate;		//Not really a vector -> diff file?
 
 
-// NEED TO BE INTEGRATED										DO IT
+// NEED TO BE INTEGRATED
 
 /* A 0.2 255,255,255 — only one per scene */
 typedef struct s_ambient
@@ -176,9 +176,9 @@ typedef struct s_scene
 	t_camera	camera;
 	t_light		light;
 	t_shapeset	shapeset;
-	t_sphere	sphere[20];		// chosen for tetsing, change!!
-	t_plane		plane[10];
-	t_cylinder	cylinder[20];	// what amount should this be?
+	t_sphere	sphere[MAX_SHAPES];
+	t_plane		plane[MAX_SHAPES];
+	t_cylinder	cylinder[MAX_SHAPES];
 }	t_scene;
 
 

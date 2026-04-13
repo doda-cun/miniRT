@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 16:51:39 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/09 14:41:24 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/10 17:48:20 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	parse_cylinder(char *line, t_scene *scene)
 	check_parts(parts, 6);
 	cylinder.center = parse_vector(parts[1]);
 	cylinder.axis = parse_normal(parts[2]);
-	cylinder.diameter = safe_atof(parts[3]);
+	cylinder.radius = safe_atof(parts[3]);	//now Diameter
 	cylinder.height = safe_atof(parts[4]);
 	cylinder.color = parse_color(parts[5]);
 	free_split(parts);

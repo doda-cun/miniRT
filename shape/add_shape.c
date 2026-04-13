@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   s_add_shape.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 19:29:03 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/09 18:51:33 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   add_shape.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/06 19:29:03 by lderks        #+#    #+#                 */
+/*   Updated: 2026/04/10 16:49:02 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	add_shapes_to_set(t_scene *scene)
 	i = 0;
 	while (i < scene->parser.sphere_count)
 	{
-		scene->sphere[i].radius = scene->sphere[i].radius / 2.0f;
+		scene->sphere[i].radius = scene->sphere[i].radius / 2.0f;			//Diameter / 2 = radius
 		add_shapeset(&scene->shapeset, (t_shape *)&scene->sphere[i]);
 		i++;
 	}
