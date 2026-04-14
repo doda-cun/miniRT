@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 16:36:01 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 16:17:07 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/14 16:20:57 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
 		- squared(cylinder->radius);
 	c_math->discriminant = squared(c_math->b) - 4.0f * c_math->a * c_math->c;
 }
-<<<<<<< HEAD
-=======
 
 void	set_cylinder_single_math(t_cylinder *cylinder, const t_ray *ray,
 			t_cylinder_math *c_math)
@@ -48,4 +46,3 @@ void	set_cylinder_single_math(t_cylinder *cylinder, const t_ray *ray,
 	c_math->c = dot_product(c_math->dp_perp, c_math->dp_perp) - squared(cylinder->radius);
 	c_math->discriminant = squared(c_math->b) - 4.0f * c_math->a * c_math->c;
 }
->>>>>>> master

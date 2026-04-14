@@ -6,8 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:03:28 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/13 18:14:32 by doda-cun         ###   ########.fr       */
->>>>>>>>> Temporary merge branch 2
+/*   Updated: 2026/04/14 16:31:57 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +29,13 @@ int		sphere_single_intersect(t_shape *shape, const t_ray *ray);
 void	set_sphere_math(t_sphere *sphere, t_intersection *intersection,
 			t_sphere_math *s_math);
 int		shapeset_full_intersect(t_shapeset *set, t_intersection *intersection);
-<<<<<<<<< Temporary merge branch 1
 void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
-						t_cylinder_math *c_math);
+			t_cylinder_math *c_math);
+void	set_cylinder_single_math(t_cylinder *cylinder, const t_ray *ray,
+			t_cylinder_math *c_math);
 int		cylinder_full_intersect(t_shape *shape, t_intersection *intersection);
-=========
+int		cylinder_single_intersect(t_shape *shape, const t_ray *ray);
 int		shapeset_single_intersect(t_shapeset *set, const t_ray *ray);
->>>>>>>>> Temporary merge branch 2
-
 
 // Setup
 void	add_shapeset(t_shapeset *shapeset, t_shape *shape);

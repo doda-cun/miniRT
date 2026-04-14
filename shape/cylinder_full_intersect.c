@@ -6,25 +6,13 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 14:09:46 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 16:17:15 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/14 16:21:16 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
 #include "render.h"
 
-<<<<<<< HEAD:shape/cylinder_intersect.c
-static int	check_body_hit(t_cylinder *cylinder,
-				t_intersection *intersection, float t);
-static int	check_cap_hit(t_cylinder *cylinder,
-				t_intersection *intersection, t_point cap_center);
-static int	check_caps(t_cylinder *cylinder, t_intersection *intersection);
-static int	check_cap_hit(t_cylinder *cylinder, t_intersection *intersection,
-				t_point cap_center);
-
-static int	check_body_candidates(t_cylinder *cylinder,
-				t_intersection *intersection, t_cylinder_math *c_math)
-=======
 static int	check_body_hit(t_cylinder *cylinder, t_intersection *intersection,
 							float t);
 static int	check_cap_hit(t_cylinder *cylinder, t_intersection *intersection,
@@ -32,7 +20,6 @@ static int	check_cap_hit(t_cylinder *cylinder, t_intersection *intersection,
 
 static int	check_body_candidates(t_cylinder *cylinder, t_intersection *intersection,
 							t_cylinder_math *c_math)
->>>>>>> master:shape/cylinder_full_intersect.c
 {
 	if (c_math->discriminant < 0.0f || c_math->a == 0.0f)
 		return (0);
@@ -126,8 +113,6 @@ int	cylinder_full_intersect(t_shape *shape, t_intersection *intersection)
 		intersection->color = get_cylinder_color(cylinder, intersection);
 	return (hit);
 }
-<<<<<<< HEAD:shape/cylinder_intersect.c
-=======
 
 /*
 1. Project onto the perpendicular plane.
@@ -153,4 +138,3 @@ Because every hit function checks t >= intersection->length before accepting,
 and the shapeset loop runs all shapes, whichever shape produces the smallest t is what ends up coloring the pixel —
 exactly the same mechanism as sphere vs plane.
 */
->>>>>>> master:shape/cylinder_full_intersect.c
