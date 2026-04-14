@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_shapeset_intersect.c                             :+:      :+:    :+:   */
+/*   shapeset_intersect.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 17:11:05 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/13 18:34:39 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/14 16:06:51 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	shapeset_full_intersect(t_shapeset *set, t_intersection *intersection)
 		i++;
 	}
 	return (did_hit);
+<<<<<<< HEAD:shape/s_shapeset_intersect.c
 }
 
 int	shapeset_single_intersect(t_shapeset *set, const t_ray *ray)
@@ -44,3 +45,6 @@ int	shapeset_single_intersect(t_shapeset *set, const t_ray *ray)
 	}
 	return (0);
 }
+=======
+}
+>>>>>>> ff611ae3a12f93decf25c9f7f6d4f48a0c5bf51c:shape/shapeset_intersect.c
