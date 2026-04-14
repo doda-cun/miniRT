@@ -12,7 +12,7 @@
 
 #include "shape.h"
 
-void	set_cylinder_full_math(t_cylinder *cylinder, t_intersection *intersection,
+void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
 						t_cylinder_math *c_math)
 {
 	c_math->origin_to_base = v_new_subtraction(intersection->ray.origin,

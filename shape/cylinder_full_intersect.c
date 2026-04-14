@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   cylinder_intersect.c                               :+:    :+:            */
+/*   cylinder_full_intersect.c                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/13 14:09:46 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/14 13:24:36 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/14 15:35:46 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
 
+static int	check_body_hit(t_cylinder *cylinder, t_intersection *intersection,
+							float t);
+static int	check_cap_hit(t_cylinder *cylinder, t_intersection *intersection,
+							t_point cap_center);
+							
 static int	check_body_candidates(t_cylinder *cylinder, t_intersection *intersection,
 							t_cylinder_math *c_math)
 {

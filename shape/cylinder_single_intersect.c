@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 13:25:11 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/14 13:38:28 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/14 15:38:20 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	cylinder_single_intersect(t_shape *shape, const t_ray *ray)
 	t_cylinder_math	c_math;
 
 	cylinder = (t_cylinder *)shape;
-	set_cylinder_math_single(cylinder, ray, &c_math);
+	set_cylinder_single_math(cylinder, ray, &c_math);
 	if (check_body_candidates_s(cylinder, ray, &c_math))
 		return (1);
 	if (check_caps_s(cylinder, ray))
