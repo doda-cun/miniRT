@@ -6,17 +6,17 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:03:28 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/13 18:57:33 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/14 15:02:50 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHAPE_H
-#define SHAPE_H
+# define SHAPE_H
 
-#include "structs.h"
-#include "intersections.h"
-#include "vectors.h"
-#include "rays.h"
+# include "structs.h"
+# include "intersections.h"
+# include "vectors.h"
+# include "rays.h"
 
 // typedef int (*t_full_intersect_fp)(struct t_shape *shape, t_intersection *intersection);
 // typedef int (*t_single_intersect_fp)(struct t_shape *shape, const t_ray *ray);
@@ -26,11 +26,14 @@ int		plane_full_intersect(t_shape *shape, t_intersection *intersection);
 int		plane_single_intersect(t_shape *shape, const t_ray *ray);
 int		sphere_full_intersect(t_shape *shape, t_intersection *intersection);
 int		sphere_single_intersect(t_shape *shape, const t_ray *ray);
+void	set_sphere_math(t_sphere *sphere, t_intersection *intersection,
+			t_sphere_math *s_math);
 int		shapeset_full_intersect(t_shapeset *set, t_intersection *intersection);
-int     shapeset_single_intersect(t_shapeset *set, const t_ray *ray);
-void    set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
-                        t_cylinder_math *c_math);
-int     cylinder_full_intersect(t_shape *shape, t_intersection *intersection);
+int		shapeset_single_intersect(t_shapeset *set, const t_ray *ray);
+void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
+			t_cylinder_math *c_math);
+
+int		cylinder_full_intersect(t_shape *shape, t_intersection *intersection);
 int		cylinder_single_intersect(t_shape *shape, const t_ray *ray);
 
 

@@ -14,5 +14,5 @@
 
 int	intersection_hit(const t_intersection *intersection)			//remove const?? not needed only good practice
 {
-	return(intersection->shape != NO_HIT);	
+	return (intersection->shape != NO_HIT);
 }

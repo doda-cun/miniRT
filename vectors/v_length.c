@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   v_length.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/24 14:13:08 by lderks        #+#    #+#                 */
-/*   Updated: 2026/03/24 14:29:16 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   v_length.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/24 14:13:08 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/14 15:00:06 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 float	length_square(t_vector vector)
 {
-	return squared(vector.x) + squared(vector.y) + squared(vector.z);
+	return (squared(vector.x) + squared(vector.y) + squared(vector.z));
 }
 
 float	length_square_r(t_vector vector)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   check_required.c                                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/12 19:25:34 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/09 15:02:59 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   check_required.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/12 19:25:34 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/14 15:08:45 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	check_required(t_scene *scene)
 		write(2, "Error\nMissing light\n", 20);
 		exit(1);
 	}
-	check_count_shapes(scene);		//added
+	check_count_shapes(scene);
 }

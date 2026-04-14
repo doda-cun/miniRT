@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   cylinder_math.c                                    :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/13 16:36:01 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/13 16:37:25 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   cylinder_math.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/13 16:36:01 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/14 14:57:20 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
 				dot_product(c_math->origin_to_base, cylinder->axis)));
 	c_math->a = dot_product(c_math->v_perp, c_math->v_perp);
 	c_math->b = 2.0f * dot_product(c_math->v_perp, c_math->dp_perp);
-	c_math->c = dot_product(c_math->dp_perp, c_math->dp_perp) - squared(cylinder->radius);
+	c_math->c = dot_product(c_math->dp_perp, c_math->dp_perp)
+		- squared(cylinder->radius);
 	c_math->discriminant = squared(c_math->b) - 4.0f * c_math->a * c_math->c;
 }

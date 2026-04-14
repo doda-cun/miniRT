@@ -1,37 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   cylinder_intersect.c                               :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/13 14:09:46 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/13 16:41:10 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   cylinder_intersect.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/13 14:09:46 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/14 16:00:18 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
+#include "render.h"
 
-static int	check_body_candidates(t_cylinder *cylinder, t_intersection *intersection,
-							t_cylinder_math *c_math)
+static int	check_body_hit(t_cylinder *cylinder,
+				t_intersection *intersection, float t);
+static int	check_cap_hit(t_cylinder *cylinder,
+				t_intersection *intersection, t_point cap_center);
+static int	check_caps(t_cylinder *cylinder, t_intersection *intersection);
+static int	check_cap_hit(t_cylinder *cylinder, t_intersection *intersection,
+				t_point cap_center);
+
+static int	check_body_candidates(t_cylinder *cylinder,
+				t_intersection *intersection, t_cylinder_math *c_math)
 {
 	if (c_math->discriminant < 0.0f || c_math->a == 0.0f)
 		return (0);
-	c_math->t_near = (-c_math->b - sqrtf(c_math->discriminant)) / (2.0f * c_math->a);
-	c_math->t_far = (-c_math->b + sqrtf(c_math->discriminant)) / (2.0f * c_math->a);
+	c_math->t_near = (-c_math->b - sqrtf(c_math->discriminant))
+		/ (2.0f * c_math->a);
+	c_math->t_far = (-c_math->b + sqrtf(c_math->discriminant))
+		/ (2.0f * c_math->a);
 	if (check_body_hit(cylinder, intersection, c_math->t_near))
 		return (1);
 	if (check_body_hit(cylinder, intersection, c_math->t_far))
 		return (1);
 	return (0);
 }
- 
-static int	check_body_hit(t_cylinder *cylinder, t_intersection *intersection, float t)
+
+static int	check_body_hit(t_cylinder *cylinder,
+				t_intersection *intersection, float t)
 {
 	t_point		hit;
 	t_vector	hit_to_base;
 	float		proj;
- 
+
 	if (t <= RAY_T_MIN || t >= intersection->length)
 		return (0);
 	hit = ray_calculate_length(&intersection->ray, t);
@@ -42,6 +54,7 @@ static int	check_body_hit(t_cylinder *cylinder, t_intersection *intersection, fl
 	intersection->length = t;
 	intersection->shape = (t_shape *)cylinder;
 	intersection->color = cylinder->color;
+	intersection->hit_cap = 0;
 	return (1);
 }
 
@@ -68,7 +81,7 @@ static int	check_cap_hit(t_cylinder *cylinder, t_intersection *intersection,
 	float		t;
 	t_point		hit;
 	t_vector	hit_to_cap;
- 
+
 	dDotN = dot_product(intersection->ray.direction, cylinder->axis);
 	if (dDotN == 0.0f) //ray runs parallel to cap of cylinder, no hit
 		return (0);
@@ -77,25 +90,29 @@ static int	check_cap_hit(t_cylinder *cylinder, t_intersection *intersection,
 	if (t <= RAY_T_MIN || t >= intersection->length)
 		return (0);
 	hit = ray_calculate_length(&intersection->ray, t);
-	hit_to_cap = v_new_subtraction(hit, cap_center);	
+	hit_to_cap = v_new_subtraction(hit, cap_center);
 	if (dot_product(hit_to_cap, hit_to_cap) > squared(cylinder->radius))
 		return (0);				//check hit point is inside the disc (circle)
 	intersection->length = t;
 	intersection->shape = (t_shape *)cylinder;
 	intersection->color = cylinder->color;
+	intersection->hit_cap = 1;
+	intersection->cap_center = cap_center;
 	return (1);
 }
- 
+
 int	cylinder_full_intersect(t_shape *shape, t_intersection *intersection)
 {
 	t_cylinder		*cylinder;
 	t_cylinder_math	c_math;
 	int				hit;
- 
+
 	cylinder = (t_cylinder *)shape;
-	set_body_math(cylinder, intersection, &c_math);
+	set_cylinder_math(cylinder, intersection, &c_math);
 	hit = check_body_candidates(cylinder, intersection, &c_math);
 	if (check_caps(cylinder, intersection))
 		hit = 1;
+	if (hit)
+		intersection->color = get_cylinder_color(cylinder, intersection);
 	return (hit);
 }

@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   squared.c                                          :+:      :+:    :+:   */
+/*   v_new_operators_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 13:39:50 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 14:57:54 by doda-cun         ###   ########.fr       */
+/*   Created: 2026/04/14 15:25:57 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/14 15:29:30 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vectors.h"
 
-float	squared(float number)		//move?
+t_vector	v_new_negative(t_vector vector)
 {
-	float	squared;
+	t_vector	negative;
 
-	squared = number * number;
-	return (squared);
+	negative.x = -vector.x;
+	negative.y = -vector.y;
+	negative.z = -vector.z;
+	return (negative);
+}
+
+t_vector	v_new_divide_float(t_vector vec_1, float nbr)
+{
+	t_vector	new_vec;
+
+	new_vec.x = vec_1.x / nbr;
+	new_vec.y = vec_1.y / nbr;
+	new_vec.z = vec_1.z / nbr;
+	return (new_vec);
 }

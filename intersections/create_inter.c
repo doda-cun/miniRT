@@ -13,7 +13,7 @@
 #include "intersections.h"
 #include "rays.h"
 
-t_intersection i_create_default()
+t_intersection	i_create_default(void)
 {
 	t_intersection	intersection;
 
@@ -23,7 +23,7 @@ t_intersection i_create_default()
 	return (intersection);
 }
 
-t_intersection i_create_from_ray(t_ray ray)
+t_intersection	i_create_from_ray(t_ray ray)
 {
 	t_intersection	intersection;
 
