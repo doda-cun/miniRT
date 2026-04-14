@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/02 13:03:28 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/13 17:48:42 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/14 14:30:24 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ int		sphere_full_intersect(t_shape *shape, t_intersection *intersection);
 int		sphere_single_intersect(t_shape *shape, const t_ray *ray);
 int		shapeset_full_intersect(t_shapeset *set, t_intersection *intersection);
 void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
-						t_cylinder_math *c_math);
+							t_cylinder_math *c_math);
 int		cylinder_full_intersect(t_shape *shape, t_intersection *intersection);
+void	set_cylinder_single_math(t_cylinder *cylinder, const t_ray *ray, 
+							t_cylinder_math *c_math);
+int		cylinder_single_intersect(t_shape *shape, const t_ray *ray);
 
 // Setup
 void	add_shapeset(t_shapeset *shapeset, t_shape *shape);
