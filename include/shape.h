@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   shape.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 13:03:28 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 16:05:34 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   shape.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/02 13:03:28 by lderks        #+#    #+#                 */
+/*   Updated: 2026/04/14 16:33:09 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,13 @@ int		plane_single_intersect(t_shape *shape, const t_ray *ray);
 int		sphere_full_intersect(t_shape *shape, t_intersection *intersection);
 int		sphere_single_intersect(t_shape *shape, const t_ray *ray);
 int		shapeset_full_intersect(t_shapeset *set, t_intersection *intersection);
-<<<<<<< HEAD
 int		shapeset_single_intersect(t_shapeset *set, const t_ray *ray);
-
-=======
 void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
 							t_cylinder_math *c_math);
 int		cylinder_full_intersect(t_shape *shape, t_intersection *intersection);
 void	set_cylinder_single_math(t_cylinder *cylinder, const t_ray *ray,
 							t_cylinder_math *c_math);
 int		cylinder_single_intersect(t_shape *shape, const t_ray *ray);
->>>>>>> ff611ae3a12f93decf25c9f7f6d4f48a0c5bf51c
 
 // Setup
 void	add_shapeset(t_shapeset *shapeset, t_shape *shape);
