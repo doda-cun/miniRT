@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 16:40:35 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 15:27:26 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/14 16:17:40 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //mod = Modify. Keep the same vector and modify it.
 
-void	vec_mod_equal(t_vector *vec_1, t_vector *vec_2)
+void	v_mod_equal(t_vector *vec_1, t_vector *vec_2)
 {
 	vec_1->x = vec_2->x;
 	vec_1->y = vec_2->y;
