@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   structs.h                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/13 16:34:29 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/03 13:37:05 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/14 15:40:18 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-#include <stdlib.h>
-#include <math.h>
+# include <stdlib.h>
+# include <math.h>
 
 # define WIDTH  1280
 # define HEIGHT 720
@@ -28,10 +28,10 @@
 
 # define M_PI 3.14159265358979323846
 
-typedef struct s_shape t_shape;
-typedef struct s_intersection t_intersection;
-typedef struct s_ray t_ray;
-typedef struct s_scene t_scene;
+typedef	struct	s_shape t_shape;
+typedef	struct	s_intersection t_intersection;
+typedef	struct	s_ray t_ray;
+typedef	struct	s_scene t_scene;
 
 typedef int (*t_full_intersect_fp)(t_shape *shape,
 				t_intersection *intersection);
@@ -70,7 +70,7 @@ typedef struct s_vector
 
 typedef t_vector t_point;		//for Code-Readability
 
-typedef	struct s_ray
+typedef	struct	s_ray
 {
 	t_point		origin;
 	t_vector	direction;
@@ -84,6 +84,8 @@ typedef struct s_intersection
 	t_shape	*shape;
 	t_color	color;
 	t_scene	*scene;				// we need this to access light and ambient.
+	int		hit_cap;
+	t_point	cap_center; 		// we need to store which cap center was hit for the normal direction
 }	t_intersection;
 
 typedef enum s_shape_type
@@ -121,6 +123,17 @@ typedef struct s_sphere
 	float		radius;			// 1/2 * the diameter
 	t_color		color;
 }	t_sphere;
+
+typedef struct s_sphere_math
+{
+	t_ray	local_ray;
+	float	a;
+	float	b;
+	float	c;
+	float	discriminant;
+	float	length_1;
+	float	length_2;
+}	t_sphere_math;
 
 typedef struct s_cylinder
 {

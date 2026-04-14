@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   apply_lighting.c                                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/24 15:48:12 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/06 16:03:26 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   apply_lighting.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/24 15:48:12 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/14 15:21:10 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_color	apply_lighting(t_color color, t_ambient ambient, double diffuse)
 
 	brightness = ambient.ratio + diffuse;
 	if (brightness > 1.0)
-		brightness = 1.0; 					//cannot be more brigth than 100%
+		brightness = 1.0; //cannot be brighter than 100%
 	result.r = (int)(color.r * brightness);
 	result.g = (int)(color.g * brightness);
 	result.b = (int)(color.b * brightness);

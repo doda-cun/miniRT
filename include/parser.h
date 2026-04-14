@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parser.h                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/03 14:45:28 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/09 15:01:44 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parser.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/03 14:45:28 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/14 15:01:56 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 
-#include "structs.h"
-#include "libft.h"
+# include "structs.h"
+# include "libft.h"
 
 //Parser
-void	parse_scene(char *filename, t_scene *scene);
-void	parse_line(char *line, t_scene *scene);
-void	parse_ambient(char *line, t_scene *scene);
-void	parse_camera(char *line, t_scene *scene);
-void	parse_light(char *line, t_scene *scene);
-void	parse_sphere(char *line, t_scene *scene);
-void	parse_plane(char *line, t_scene *scene);
-void	parse_cylinder(char *line, t_scene *scene);
+void		parse_scene(char *filename, t_scene *scene);
+void		parse_line(char *line, t_scene *scene);
+void		parse_ambient(char *line, t_scene *scene);
+void		parse_camera(char *line, t_scene *scene);
+void		parse_light(char *line, t_scene *scene);
+void		parse_sphere(char *line, t_scene *scene);
+void		parse_plane(char *line, t_scene *scene);
+void		parse_cylinder(char *line, t_scene *scene);
 
 //Parser Utils
 t_color		parse_color(char *str);
