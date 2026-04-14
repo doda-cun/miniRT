@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/13 14:09:46 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/13 16:41:10 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/13 18:19:17 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,34 @@ int	cylinder_full_intersect(t_shape *shape, t_intersection *intersection)
 	int				hit;
  
 	cylinder = (t_cylinder *)shape;
-	set_body_math(cylinder, intersection, &c_math);
+	set_cylinder_math(cylinder, intersection, &c_math);
 	hit = check_body_candidates(cylinder, intersection, &c_math);
 	if (check_caps(cylinder, intersection))
 		hit = 1;
 	return (hit);
 }
+
+/*
+1. Project onto the perpendicular plane.
+Strip out everything parallel to the cylinders axis from both the ray direction and the origin offset. 
+What's left (v_perp, dp_perp) describes the ray as seen from directly above the cylinder — 
+where it looks like a simple circle problem.
+
+2. Solve the quadratic for the curved surface.
+Same At² + Bt + C = 0 structure as the sphere. The discriminant tells you if the ray misses entirely (< 0), 
+grazes the edge (= 0), or punches through giving two candidates t_near and t_far.
+
+3. Height-clamp the body candidates.
+A hit on the infinite cylinder doesn't mean a hit on your finite one. 
+You project the hit point back onto the axis and check it falls between 0 and height. 
+This is what trims the infinite tube down to your actual cylinder.
+
+4. Test the two flat caps.
+Each cap is a ray-plane intersection (identical math to your plane code), 
+followed by checking the hit point falls within the disc radius. This closes off the top and bottom.
+
+5. The closest valid t wins.
+Because every hit function checks t >= intersection->length before accepting, 
+and the shapeset loop runs all shapes, whichever shape produces the smallest t is what ends up coloring the pixel — 
+exactly the same mechanism as sphere vs plane.
+*/

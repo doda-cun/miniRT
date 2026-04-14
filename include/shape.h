@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/02 13:03:28 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/13 16:39:50 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/13 17:48:42 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ int		shapeset_full_intersect(t_shapeset *set, t_intersection *intersection);
 void	set_cylinder_math(t_cylinder *cylinder, t_intersection *intersection,
 						t_cylinder_math *c_math);
 int		cylinder_full_intersect(t_shape *shape, t_intersection *intersection);
-
-// Create
-//t_plane		*plane_create(t_point point, t_vector normal);
-//t_sphere	*sphere_create(t_point centre, float radius);
 
 // Setup
 void	add_shapeset(t_shapeset *shapeset, t_shape *shape);
