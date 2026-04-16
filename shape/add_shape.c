@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   add_shape.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 19:29:03 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 16:31:41 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   add_shape.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/06 19:29:03 by lderks        #+#    #+#                 */
+/*   Updated: 2026/04/14 17:57:34 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	add_plane_to_set(t_scene *scene, int i)
 void	add_cylinder_to_set(t_scene *scene, int i)
 {
 	scene->cylinder[i].shape.full_intersection = cylinder_full_intersect;
-	scene->cylinder[i].shape.single_intersection = cylinder_single_intersect; 					//IDK if this works.
-	scene->cylinder[i].axis = v_normalized(scene->cylinder[i].axis);		//where do we change Diameter to radius?
+	scene->cylinder[i].shape.single_intersection = cylinder_single_intersect;
+	scene->cylinder[i].axis = v_normalized(scene->cylinder[i].axis);
 	add_shapeset(&scene->shapeset, (t_shape *)&scene->cylinder[i]);
 }
 

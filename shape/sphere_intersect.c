@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sphere_intersect.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 14:01:34 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 14:57:41 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   sphere_intersect.c                                 :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/02 14:01:34 by lderks        #+#    #+#                 */
+/*   Updated: 2026/04/14 17:58:01 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	sphere_full_intersect(t_shape *shape, t_intersection *intersection)
 	t_sphere_math	s_math;
 
 	sphere = (t_sphere *)shape;
-	set_sphere_math(sphere, intersection, &s_math);
+	set_sphere_math(sphere, intersection, &s_math); 
 	if (s_math.discriminant < 0.0f)
 		return (0);
 	s_math.length_1 = (-s_math.b - sqrt(s_math.discriminant))

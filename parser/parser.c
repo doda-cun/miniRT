@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 17:33:19 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/14 13:24:54 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   parser.c                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/03/10 17:33:19 by doda-cun      #+#    #+#                 */
+/*   Updated: 2026/04/16 17:40:17 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	parse_scene(char *filename, t_scene *scene)
 {
 	int		fd;
 	char	*line;
-										//make these functions give parser and scene structs
+
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
@@ -29,5 +29,5 @@ void	parse_scene(char *filename, t_scene *scene)
 		free(line);
 	}
 	close(fd);
-	check_required(scene);			//added shapes_count check
+	check_required(scene);
 }

@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/10 17:42:27 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/06 17:50:32 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/14 17:57:10 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	strip_newline(char *line)
 void	parse_line(char *line, t_scene *scene)
 {
 	strip_newline(line);
-	//GNL returns the string with \n this breaks the parser.
 	if (line[0] == 'A')
 		parse_ambient(line, scene);
 	else if (line[0] == 'C')

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 17:31:00 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/10 18:36:34 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/03/09 17:31:00 by doda-cun      #+#    #+#                 */
+/*   Updated: 2026/04/16 14:17:59 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,22 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	ft_memset(&scene, 0, sizeof(t_scene));
+
+	parse_scene(argv[1], &scene);
+	
 	mlx.mlx = mlx_init();
 	if (!mlx.mlx)
 	{
 		write(2, "Error\nmlx_init failed\n", 22);
 		return (1);
 	}
-	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "miniRT test");
+	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "miniRT test");		//This block was above parse_scene, i placed it afterwards for no window opening on Error.
 	if (!mlx.win)
 	{
 		write(2, "Error\nWindow creation failed\n", 29);
 		return (1);
 	}
-	parse_scene(argv[1], &scene);
+	
 	camera_init(&scene.camera);
 	add_shapes_to_set(&scene);
 	render(&mlx, &scene);
