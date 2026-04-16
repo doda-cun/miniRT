@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_vec3.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/10 18:32:41 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/06 19:01:13 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_vector.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 18:32:41 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/16 17:46:18 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_vector	parse_vector(char *str)
 	check_numeric(parts[0]);
 	check_numeric(parts[1]);
 	check_numeric(parts[2]);
-	vec.x = ft_atof(parts[0]);
-	vec.y = ft_atof(parts[1]);
-	vec.z = ft_atof(parts[2]);
+	vec.x = safe_atof(parts[0]);
+	vec.y = safe_atoi(parts[1]);
+	vec.z = safe_atof(parts[2]);
 	free_split(parts);
 	return (vec);
 }

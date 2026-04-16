@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:50:21 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/03/16 17:53:31 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/16 17:43:20 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ char		*remove_extracted_line(char *stash);
 char		*ft_strjoin_free(char *s1, char *s2);
 char		*ft_freestash(char *stash);
 double		ft_atof(char *str);
+long int	ft_atol(const char *str);
 
 #endif
