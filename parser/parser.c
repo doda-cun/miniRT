@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 17:33:19 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/14 13:24:54 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/16 17:50:36 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	parse_scene(char *filename, t_scene *scene)
 	int		fd;
 	char	*line;
 										//make these functions give parser and scene structs
+	check_file(filename);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
