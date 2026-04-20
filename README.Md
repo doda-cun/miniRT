@@ -6,9 +6,9 @@ miniRT is a basic ray tracer built in C using the MiniLibX graphics library. It 
 
 
 ## Instructions
-- To use the program you have to run ./miniRT scenes/(name of scene)
+- To use the program you have to run ./miniRT scenes/(name of scene).rt
 - Only scenes ending with the extension '.rt' will be accepted.
-- In order to render each scene needs to have a camera, light, ambieance and at least one object.
+- In order to render, each scene needs to have a camera, light, ambieance and at least one object.
 - Coordinates numbers, normalized numbers, FOV and color numbers all have to be in range in order to render.
 
 ## Resources

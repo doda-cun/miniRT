@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 13:37:05 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 15:40:18 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 19:09:59 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,15 @@
 # define RAY_T_MIN 0.001f
 # define RAY_T_MAX 1.0e30f
 
-# define NO_HIT NULL
-
 # define MAX_SHAPES 50
 
 # define M_PI 3.14159265358979323846
 
-typedef	struct	s_shape t_shape;
-typedef	struct	s_intersection t_intersection;
-typedef	struct	s_ray t_ray;
-typedef	struct	s_scene t_scene;
-
-typedef int (*t_full_intersect_fp)(t_shape *shape,
-				t_intersection *intersection);
-typedef int (*t_single_intersect_fp)(t_shape *shape, const t_ray *ray);
+typedef struct s_shape			t_shape;
+typedef struct s_intersection	t_intersection;
+typedef struct s_ray			t_ray;
+typedef struct s_scene			t_scene;
+typedef struct s_vector			t_point;
 
 typedef struct s_mlx
 {
@@ -43,7 +38,7 @@ typedef struct s_mlx
 	void	*win;
 }	t_mlx;
 
-typedef struct s_parser		//new struct still needs intergrating!
+typedef struct s_parser
 {
 	int	sphere_count;
 	int	plane_count;
@@ -68,9 +63,7 @@ typedef struct s_vector
 	float	z;
 }	t_vector;
 
-typedef t_vector t_point;		//for Code-Readability
-
-typedef	struct	s_ray
+typedef struct s_ray
 {
 	t_point		origin;
 	t_vector	direction;
@@ -85,7 +78,7 @@ typedef struct s_intersection
 	t_color	color;
 	t_scene	*scene;				// we need this to access light and ambient.
 	int		hit_cap;
-	t_point	cap_center; 		// we need to store which cap center was hit for the normal direction
+	t_point	cap_center;			// which cap center was hit for the normal dir.
 }	t_intersection;
 
 typedef enum s_shape_type
@@ -97,9 +90,10 @@ typedef enum s_shape_type
 
 typedef struct s_shape
 {
-	int						type;
-	t_full_intersect_fp		full_intersection;
-	t_single_intersect_fp	single_intersection;
+	int	type;
+	int	(*full_intersection)(t_shape *shape,
+			t_intersection *intersection);
+	int	(*single_intersection)(t_shape *shape, const t_ray *ray);
 }	t_shape;
 
 typedef struct s_shapeset
@@ -112,7 +106,7 @@ typedef struct s_plane
 {
 	t_shape		shape;
 	t_point		point;			//any point on the plane
-	t_vector	normal; 		// normalized [-1,1]
+	t_vector	normal;			// normalized [-1,1]
 	t_color		color;
 }	t_plane;
 
@@ -162,15 +156,12 @@ typedef struct s_screen_coordinate
 {
 	float	x;					//Horizontal 2D coordinate - x
 	float	y;					//Vertical 2D coordinate - y
-}	t_screen_coordinate;		//Not really a vector -> diff file?
-
-
-// NEED TO BE INTEGRATED
+}	t_screen_coordinate;
 
 /* A 0.2 255,255,255 — only one per scene */
 typedef struct s_ambient
 {
-	double	ratio; 			// [0.0, 1.0]
+	double	ratio;			// [0.0, 1.0]
 	t_color	color;
 }	t_ambient;
 
@@ -183,7 +174,7 @@ typedef struct t_camera
 	t_vector	dir;
 	t_vector	right;
 	t_vector	up;
-	int			fov; 		// [0, 180] field of view
+	int			fov;		// [0, 180] field of view
 	float		half_h;		// height scaling unit - tan(fov/2)
 	float		half_w;		// width scaling unit - half_h * aspect ratio
 }	t_camera;
@@ -192,7 +183,7 @@ typedef struct t_camera
 typedef struct s_light
 {
 	t_point	pos;
-	double	brightness; 	// [0.0, 1.0]
+	double	brightness;		// [0.0, 1.0]
 	t_color	color;
 
 }	t_light;
@@ -208,7 +199,5 @@ typedef struct s_scene
 	t_plane		plane[MAX_SHAPES];
 	t_cylinder	cylinder[MAX_SHAPES];
 }	t_scene;
-
-
 
 #endif

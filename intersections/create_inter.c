@@ -19,7 +19,7 @@ t_intersection	i_create_default(void)
 
 	intersection.ray = ray_c_default();
 	intersection.length = RAY_T_MAX;
-	intersection.shape = NO_HIT;
+	intersection.shape = NULL;
 	return (intersection);
 }
 
@@ -29,6 +29,6 @@ t_intersection	i_create_from_ray(t_ray ray)
 
 	intersection.ray = ray_c_new(ray.origin, ray.direction, ray.t_max);
 	intersection.length = RAY_T_MAX;
-	intersection.shape = NO_HIT;
+	intersection.shape = NULL;
 	return (intersection);
 }

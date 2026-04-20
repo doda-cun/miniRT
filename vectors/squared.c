@@ -6,13 +6,13 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 13:39:50 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 14:57:54 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 18:36:33 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vectors.h"
 
-float	squared(float number)		//move?
+float	squared(float number)
 {
 	float	squared;
 
