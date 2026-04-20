@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:33:27 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/20 18:41:51 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 19:23:56 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,9 @@ static t_vector	get_cylinder_normal(t_cylinder *cylinder,
 
 	if (intersection->hit_cap)
 	{
-		if (intersection->hit_cap)
-		{
-			if (dot_product(cylinder->axis, intersection->ray.direction) < 0)
-				return (cylinder ->axis);
-			return (v_new_negative(cylinder->axis));
-		}
+		if (dot_product(cylinder->axis, intersection->ray.direction) < 0)
+			return (cylinder->axis);
+		return (v_new_negative(cylinder->axis));
 	}
 	hit_to_base = v_new_subtraction(hit_point, cylinder->center);
 	projection = dot_product(hit_to_base, cylinder->axis);
