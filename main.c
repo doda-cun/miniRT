@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 17:31:00 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/16 18:28:05 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/03/09 17:31:00 by doda-cun      #+#    #+#                 */
+/*   Updated: 2026/04/20 17:47:15 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdio.h>
 
 static void	mlx_setup(t_mlx *mlx);
+static void	mlx_image_setup(t_mlx *mlx);
 
 
 int	main(int argc, char **argv)
@@ -54,6 +55,29 @@ static void	mlx_setup(t_mlx *mlx)
 	if (!mlx->win)
 	{
 		write(2, "Error\nWindow creation failed\n", 29);
+		exit (1);
+	}
+	mlx_image_setup(mlx);
+}
+
+static void	mlx_image_setup(t_mlx *mlx)
+{
+	mlx->image.img = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
+	if (!mlx->image.img)
+	{
+		write(2, "Error\nImage creation failed\n", 28);
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		exit (1);
+	}
+	mlx->image.addr = mlx_get_data_addr(mlx->image.img,
+			&mlx->image.bits_per_pixel,
+			&mlx->image.line_length,
+			&mlx->image.endian);
+	if (!mlx->image.addr)
+	{
+		write(2, "Error\nImage buffer setup failed\n", 33);
+		mlx_destroy_image(mlx->mlx, mlx->image.img);
+		mlx_destroy_window(mlx->mlx, mlx->win);
 		exit (1);
 	}
 }

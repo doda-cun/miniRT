@@ -15,10 +15,20 @@
 #include "shape.h"
 #include <stdio.h>
 
+static void	image_put_pixel(t_image *image, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = image->addr + (y * image->line_length
+			+ x * (image->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}
+
 void	render(t_mlx *mlx, t_scene *scene)
 {
 	int				x;
 	int				y;
+	int				pixel_color;
 	t_ray			ray;
 	t_intersection	intersection;
 
@@ -31,13 +41,13 @@ void	render(t_mlx *mlx, t_scene *scene)
 			ray = camera_make_ray(&scene->camera, x, y);
 			intersection = i_create_from_ray(ray);
 			intersection.scene = scene;
+			pixel_color = 0;
 			if (shapeset_full_intersect(&scene->shapeset, &intersection))
-			{
-				mlx_pixel_put(mlx->mlx, mlx->win, x, y,
-					color_to_hex(intersection.color));
-			}
+				pixel_color = color_to_hex(intersection.color);
+			image_put_pixel(&mlx->image, x, y, pixel_color);
 			x++;
 		}
 		y++;
 	}
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->image.img, 0, 0);
 }

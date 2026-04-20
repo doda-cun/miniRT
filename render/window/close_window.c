@@ -14,6 +14,18 @@
 
 int	close_window(void *param)
 {
-	mlx_destroy_window(((t_mlx *)param)->mlx, ((t_mlx *)param)->win);
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *)param;
+	if (mlx->image.img)
+		mlx_destroy_image(mlx->mlx, mlx->image.img);
+	if (mlx->win)
+		mlx_destroy_window(mlx->mlx, mlx->win);
+	if (mlx->mlx)
+	{
+		mlx_destroy_display(mlx->mlx);
+		free(mlx->mlx);
+	}
 	exit(0);
+	return (0);
 }

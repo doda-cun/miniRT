@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 13:37:05 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 15:40:18 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   structs.h                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
+/*   Updated: 2026/04/20 17:25:49 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,20 @@ typedef int (*t_full_intersect_fp)(t_shape *shape,
 				t_intersection *intersection);
 typedef int (*t_single_intersect_fp)(t_shape *shape, const t_ray *ray);
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+} 	t_image;
+
 typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
+	t_image	image;
 }	t_mlx;
 
 typedef struct s_parser		//new struct still needs intergrating!

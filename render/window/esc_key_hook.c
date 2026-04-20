@@ -16,9 +16,6 @@
 int	esc_key_hook(int keycode, void *param)
 {
 	if (keycode == 65307)
-	{
-		mlx_destroy_window(((t_mlx *)param)->mlx, ((t_mlx *)param)->win);
-		exit(0);
-	}
+		return (close_window(param));
 	return (0);
 }
