@@ -4,3 +4,6 @@
 *.vscode
 *.swp
 miniRT
+*.a
+mlx-test
+
