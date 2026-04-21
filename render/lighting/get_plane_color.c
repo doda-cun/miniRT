@@ -33,7 +33,7 @@ t_color	get_plane_color(t_plane *plane, t_intersection *intersection)
 		* intersection->scene->light.brightness;
 	if (diffuse < 0)
 		diffuse = 0;
-	if (is_in_shadow(intersection->scene, hit_point, plane->normal))
+	if (is_in_shadow(intersection->scene, hit_point, normal))
 		diffuse = 0;
 	return (apply_lighting(plane->color,
 			intersection->scene->ambient, diffuse));
