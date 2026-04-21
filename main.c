@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/09 17:31:00 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/20 17:47:15 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/21 12:13:59 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 static void	mlx_setup(t_mlx *mlx);
 static void	mlx_image_setup(t_mlx *mlx);
-
 
 int	main(int argc, char **argv)
 {
@@ -37,9 +36,8 @@ int	main(int argc, char **argv)
 	add_shapes_to_set(&scene);
 	render(&mlx, &scene);
 	mlx_key_hook(mlx.win, esc_key_hook, &mlx);
-	mlx_hook(mlx.win, 17, 0, close_window, &mlx); //17 code for the red X
+	mlx_hook(mlx.win, 17, 0, close_window, &mlx);
 	mlx_loop(mlx.mlx);
-//	free everything
 	return (0);
 }
 
@@ -81,12 +79,3 @@ static void	mlx_image_setup(t_mlx *mlx)
 		exit (1);
 	}
 }
-// -> MLX SETUP
-
-// MLX's mlx_pixel_put is notoriously slow when called per-pixel in a loop because it flushes to the display each call.
-// For a raytracer this will be very visible.
-// The standard solution is to use an image buffer instead — mlx_new_image;
-// write pixels with mlx_put_pixel_to_image into an off-screen buffer;
-// then display the whole frame with mlx_put_image_to_window once done.
-
-// That said, for getting something on screen initially, mlx_pixel_put works fine.

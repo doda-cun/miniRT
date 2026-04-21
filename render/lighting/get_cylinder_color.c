@@ -6,14 +6,13 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:33:27 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/14 15:56:11 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 19:23:56 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 #include "shape.h"
 #include "vectors.h"
-
 
 static t_vector	get_cylinder_normal(t_cylinder *cylinder,
 				t_intersection *intersection, t_point hit_point)
@@ -23,12 +22,9 @@ static t_vector	get_cylinder_normal(t_cylinder *cylinder,
 
 	if (intersection->hit_cap)
 	{
-		if (intersection->hit_cap)
-		{
-			if (dot_product(cylinder->axis, intersection->ray.direction) < 0)
-				return (cylinder ->axis);
-			return (v_new_negative(cylinder->axis));
-		}
+		if (dot_product(cylinder->axis, intersection->ray.direction) < 0)
+			return (cylinder->axis);
+		return (v_new_negative(cylinder->axis));
 	}
 	hit_to_base = v_new_subtraction(hit_point, cylinder->center);
 	projection = dot_product(hit_to_base, cylinder->axis);
@@ -58,10 +54,9 @@ t_color	get_cylinder_color(t_cylinder *cylinder, t_intersection *intersection)
 	return (apply_lighting(cylinder->color,
 			intersection->scene->ambient, diffuse));
 }
-
-
 /*we need to know the normal to calculate the diffuse lighting.
-For a cylinder is trickier since the normal is different depending on where the ray hits
+For a cylinder is trickier since the normal is different depending
+on where the ray hits
 ----Body/side-> normal points outward from the axis
 ----Cap -> normal points straigh up or down along the axis*/
 
@@ -73,4 +68,3 @@ If the hit point is near the top → proj is large (close to cylinder->height)
 If the hit point is near the bottom → proj is small (close to 0)*/
 
 /*hit to base is the vector from the cylinders center to the hit point*/
-

@@ -12,7 +12,7 @@
 
 #include "intersections.h"
 
-int	intersection_hit(const t_intersection *intersection)			//remove const?? not needed only good practice
+int	intersection_hit(const t_intersection *intersection)
 {
-	return (intersection->shape != NO_HIT);
+	return (intersection->shape != NULL);
 }

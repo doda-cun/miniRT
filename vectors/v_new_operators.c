@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 18:16:45 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 15:25:56 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 18:45:02 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,3 @@ t_vector	v_new_divide(t_vector vec_1, t_vector vec_2)
 	new_vec.z = vec_1.z / vec_2.z;
 	return (new_vec);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:13:08 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 15:00:06 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 18:37:11 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ float	length_square(t_vector vector)
 
 float	length_square_r(t_vector vector)
 {
-	return (sqrtf(length_square(vector)));		//this gives a double, not a float. -> different approach needed?
+	return (sqrtf(length_square(vector)));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   cylinder_single_intersect.c                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/14 13:25:11 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/14 15:38:20 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   cylinder_single_intersect.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/14 13:25:11 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/20 18:34:59 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ static int	check_body_candidates_s(t_cylinder *cylinder, const t_ray *ray,
 {
 	if (c_math->discriminant < 0.0f || c_math->a == 0.0f)
 		return (0);
-	c_math->t_near = (-c_math->b - sqrtf(c_math->discriminant)) / (2.0f * c_math->a);
-	c_math->t_far = (-c_math->b + sqrtf(c_math->discriminant)) / (2.0f * c_math->a);
+	c_math->t_near = (-c_math->b - sqrtf(c_math->discriminant))
+		/ (2.0f * c_math->a);
+	c_math->t_far = (-c_math->b + sqrtf(c_math->discriminant))
+		/ (2.0f * c_math->a);
 	if (check_body_hit_s(cylinder, ray, c_math->t_near))
 		return (1);
 	if (check_body_hit_s(cylinder, ray, c_math->t_far))
@@ -45,17 +47,17 @@ static int	check_body_candidates_s(t_cylinder *cylinder, const t_ray *ray,
 static int	check_cap_hit_s(t_cylinder *cylinder, const t_ray *ray,
 				t_point cap_center)
 {
-	float		dDotN;
+	float		d_dot_n;
 	t_vector	origin_to_cap;
 	float		t;
 	t_point		hit;
 	t_vector	hit_to_cap;
 
-	dDotN = dot_product(ray->direction, cylinder->axis);
-	if (dDotN == 0.0f)
+	d_dot_n = dot_product(ray->direction, cylinder->axis);
+	if (d_dot_n == 0.0f)
 		return (0);
 	origin_to_cap = v_new_subtraction(cap_center, ray->origin);
-	t = dot_product(origin_to_cap, cylinder->axis) / dDotN;
+	t = dot_product(origin_to_cap, cylinder->axis) / d_dot_n;
 	if (t <= RAY_T_MIN || t >= ray->t_max)
 		return (0);
 	hit = ray_calculate_length(ray, t);

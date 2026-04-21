@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 14:45:28 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 15:01:56 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 18:48:35 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ t_vector	parse_normal(char *str);
 void		check_required(t_scene *scene);
 void		check_parts(char **parts, int expected);
 void		check_count_shapes(t_scene *s);
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 13:39:20 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 14:59:08 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 18:36:55 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_vector	vec_c_default(void)
 	t_vector	vector;
 
 	vector.x = 0.0;
-	vector.y = 1.0;				// up-direction -> used for plane
+	vector.y = 1.0;
 	vector.z = 0.0;
 	return (vector);
 }

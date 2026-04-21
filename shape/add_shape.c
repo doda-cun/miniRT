@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   add_shape.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/06 19:29:03 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/14 17:57:34 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   add_shape.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/06 19:29:03 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/20 18:43:13 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shape.h"
 #include "vectors.h"
-
 
 void	add_shapeset(t_shapeset *shapeset, t_shape *shape)
 {

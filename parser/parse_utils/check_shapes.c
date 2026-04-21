@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   check_shapes.c                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/09 14:51:58 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/20 13:48:30 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   check_shapes.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/09 14:51:58 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/20 18:40:52 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	check_count_shapes(t_scene *s)
 	if (s->parser.shape_count == 0)
 	{
 		write(2, "Error\nMinimum of 1 shape per scene\n", 35);
-		exit(1);	
+		exit(1);
 	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   shape.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/02 13:03:28 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/14 16:37:00 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   shape.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 13:03:28 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/20 18:49:29 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include "intersections.h"
 # include "vectors.h"
 # include "rays.h"
-
-// typedef int (*t_full_intersect_fp)(struct t_shape *shape, t_intersection *intersection);
-// typedef int (*t_single_intersect_fp)(struct t_shape *shape, const t_ray *ray);
 
 // Intersection math
 int		plane_full_intersect(t_shape *shape, t_intersection *intersection);
@@ -45,4 +42,3 @@ void	add_cylinder_to_set(t_scene *scene, int i);
 void	add_shapes_to_set(t_scene *scene);
 
 #endif
-

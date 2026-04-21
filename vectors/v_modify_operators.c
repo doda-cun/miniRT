@@ -6,13 +6,11 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 16:40:35 by lderks            #+#    #+#             */
-/*   Updated: 2026/04/14 16:17:40 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/20 18:44:25 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vectors.h"
-
-//mod = Modify. Keep the same vector and modify it.
 
 void	v_mod_equal(t_vector *vec_1, t_vector *vec_2)
 {
@@ -48,5 +46,4 @@ void	v_mod_divide(t_vector *vec_1, float nbr)
 	vec_1->y /= nbr;
 	vec_1->z /= nbr;
 }
-
-
+//mod = Modify. Keep the same vector and modify it.
