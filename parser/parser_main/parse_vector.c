@@ -23,7 +23,7 @@ t_vector	parse_vector(char *str)
 	check_numeric(parts[1]);
 	check_numeric(parts[2]);
 	vec.x = safe_atof(parts[0]);
-	vec.y = safe_atoi(parts[1]);
+	vec.y = safe_atof(parts[1]);
 	vec.z = safe_atof(parts[2]);
 	free_split(parts);
 	return (vec);
