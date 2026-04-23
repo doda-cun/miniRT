@@ -6,7 +6,7 @@
 /*   By: lderks <lderks@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 19:25:34 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/23 17:07:21 by lderks        ########   odam.nl         */
+/*   Updated: 2026/04/23 18:53:01 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ void	check_required(t_scene *scene)
 	if (!scene->parser.has_light)
 	{
 		write(2, "Error\nMissing light\n", 20);
+		exit(1);
+	}
+	if (scene->parser.error)
+	{
+		write(2, "Error\n", 6);
+		write(2, scene->parser.error_msg, ft_strlen(scene->parser.error_msg));
 		exit(1);
 	}
 	check_count_shapes(scene);

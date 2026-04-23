@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_cylinder.c                                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/12 16:51:39 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/16 18:01:39 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_cylinder.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/12 16:51:39 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/23 18:36:45 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	parse_cylinder(char *line, t_scene *scene)
 	t_cylinder	cylinder;
 
 	parts = ft_split(line, ' ');
-	check_parts(parts, 6);
-	cylinder.center = parse_vector(parts[1]);
-	cylinder.axis = parse_normal(parts[2]);
-	cylinder.radius = safe_atof(parts[3]) / 2.0f;
-	cylinder.height = safe_atof(parts[4]);
-	cylinder.color = parse_color(parts[5]);
+	check_parts(parts, 6, scene);
+	cylinder.center = parse_vector(parts[1], scene);
+	cylinder.axis = parse_normal(parts[2], scene);
+	cylinder.radius = safe_atof(parts[3], scene) / 2.0f;
+	cylinder.height = safe_atof(parts[4], scene);
+	cylinder.color = parse_color(parts[5], scene);
 	free_split(parts);
 	scene->cylinder[scene->parser.cylinder_count++] = cylinder;
 }
