@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 17:33:19 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/20 18:17:51 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   parser.c                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/03/10 17:33:19 by doda-cun      #+#    #+#                 */
+/*   Updated: 2026/04/23 18:19:56 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	parse_scene(char *filename, t_scene *scene)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	check_required(scene);
+	check_required(scene); 
 }

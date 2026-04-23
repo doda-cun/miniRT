@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_ambient.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 18:12:08 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/09 18:34:45 by doda-cun         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   parse_ambient.c                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lderks <lderks@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/03/10 18:12:08 by doda-cun      #+#    #+#                 */
+/*   Updated: 2026/04/23 16:47:42 by lderks        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	parse_ambient(char *line, t_scene *scene)
 {
 	char	**parts;
-
+	
 	if (scene->parser.has_ambient)
 	{
 		write(2, "Error\nAmbient light defined twice.\n", 34);
