@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   structs.h                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/03 13:37:05 by lderks        #+#    #+#                 */
-/*   Updated: 2026/04/21 14:07:48 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/03 13:37:05 by lderks            #+#    #+#             */
+/*   Updated: 2026/04/23 18:03:23 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,15 @@ typedef struct s_mlx
 
 typedef struct s_parser
 {
-	int	sphere_count;
-	int	plane_count;
-	int	cylinder_count;
-	int	has_ambient;
-	int	has_camera;
-	int	has_light;
-	int	shape_count;		//added struct for overall count shapes
+	int		sphere_count;
+	int		plane_count;
+	int		cylinder_count;
+	int		has_ambient;
+	int		has_camera;
+	int		has_light;
+	int		shape_count;		//added struct for overall count shapes
+	int		error;
+	char	*error_msg;
 }	t_parser;
 
 typedef struct s_color

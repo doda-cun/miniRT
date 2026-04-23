@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 16:29:06 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/09 18:35:10 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/23 18:28:40 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	parse_light(char *line, t_scene *scene)
 		exit(1);
 	}
 	parts = ft_split(line, ' ');
-	check_parts(parts, 4);
-	scene->light.pos = parse_vector(parts[1]);
-	scene->light.brightness = safe_atof(parts[2]);
-	check_ratio(scene->light.brightness);
-	scene->light.color = parse_color(parts[3]);
+	check_parts(parts, 4, scene);
+	scene->light.pos = parse_vector(parts[1], scene);
+	scene->light.brightness = safe_atof(parts[2], scene);
+	check_ratio(scene->light.brightness, scene);
+	scene->light.color = parse_color(parts[3], scene);
 	free_split(parts);
 	scene->parser.has_light = 1;
 }

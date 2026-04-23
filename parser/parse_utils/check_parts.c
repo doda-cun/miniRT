@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   check_parts.c                                      :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/16 17:31:11 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/06 17:50:49 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   check_parts.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/16 17:31:11 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/23 18:38:05 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-void	check_parts(char **parts, int expected)
+void	check_parts(char **parts, int expected, t_scene *scene)
 {
 	int	i;
 
@@ -21,8 +21,8 @@ void	check_parts(char **parts, int expected)
 		i++;
 	if (i < expected)
 	{
-		free_split(parts);
-		write(2, "Error\nMissing fields in scene elements.\n", 38);
-		exit(1);
+		scene->parser.error = 1;
+		scene->parser.error_msg = "Missing fields in scene elements.\n";
+		return ;
 	}
 }
