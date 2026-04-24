@@ -6,27 +6,11 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 16:51:39 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/24 19:31:07 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/24 19:43:28 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-
-// void	parse_cylinder(char *line, t_scene *scene)
-// {
-// 	char		**parts;
-// 	t_cylinder	cylinder;
-
-// 	parts = ft_split(line, ' ');
-// 	check_parts(parts, 6, scene);
-// 	cylinder.center = parse_vector(parts[1], scene);
-// 	cylinder.axis = parse_normal(parts[2], scene);
-// 	cylinder.radius = safe_atof(parts[3], scene) / 2.0f;
-// 	cylinder.height = safe_atof(parts[4], scene);
-// 	cylinder.color = parse_color(parts[5], scene);
-// 	free_split(parts);
-// 	scene->cylinder[scene->parser.cylinder_count++] = cylinder;
-// }
 
 void	parse_cylinder(char *line, t_scene *scene)
 {

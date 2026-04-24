@@ -18,7 +18,8 @@ void	parse_plane(char *line, t_scene *scene)
 	t_plane	plane;
 
 	parts = ft_split(line, ' ');
-	check_parts(parts, 4, scene);
+	if (parts_error(parts, 4, scene))
+		return ;
 	plane.point = parse_vector(parts[1], scene);
 	plane.normal = parse_normal(parts[2], scene);
 	plane.color = parse_color(parts[3], scene);
