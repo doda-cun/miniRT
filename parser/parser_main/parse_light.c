@@ -23,7 +23,8 @@ void	parse_light(char *line, t_scene *scene)
 		return ;
 	}
 	parts = ft_split(line, ' ');
-	check_parts(parts, 4, scene);
+	if (parts_error(parts, 4, scene))
+		return ;
 	scene->light.pos = parse_vector(parts[1], scene);
 	scene->light.brightness = safe_atof(parts[2], scene);
 	check_ratio(scene->light.brightness, scene);

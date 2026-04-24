@@ -18,7 +18,8 @@ void	parse_sphere(char *line, t_scene *scene)
 	t_sphere	sphere;
 
 	parts = ft_split(line, ' ');
-	check_parts(parts, 4, scene);
+	if (parts_error(parts, 4, scene))
+		return ;
 	sphere.centre = parse_vector(parts[1], scene);
 	sphere.radius = safe_atof(parts[2], scene) / 2.0f;
 	sphere.color = parse_color(parts[3], scene);

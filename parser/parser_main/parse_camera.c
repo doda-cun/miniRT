@@ -23,7 +23,8 @@ void	parse_camera(char *line, t_scene *scene)
 		return ;
 	}
 	parts = ft_split (line, ' ');
-	check_parts(parts, 4, scene);
+	if (parts_error(parts, 4, scene))
+		return ;
 	scene->camera.pos = parse_vector(parts[1], scene);
 	scene->camera.dir = parse_normal(parts[2], scene);
 	scene->camera.fov = safe_atoi(parts[3], scene);
