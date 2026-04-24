@@ -6,11 +6,30 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:12:08 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/23 18:59:31 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/24 19:27:35 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
+
+// void	parse_ambient(char *line, t_scene *scene)
+// {
+// 	char	**parts;
+
+// 	if (scene->parser.has_ambient)
+// 	{
+// 		scene->parser.error = 1;
+// 		scene->parser.error_msg = "Ambient light defined twice.\n";
+// 		return ;
+// 	}
+// 	parts = ft_split(line, ' ');
+// 	check_parts(parts, 3, scene);
+// 	scene->ambient.ratio = safe_atof(parts[1], scene);
+// 	check_ratio(scene->ambient.ratio, scene);
+// 	scene->ambient.color = parse_color(parts[2], scene);
+// 	free_split(parts);
+// 	scene->parser.has_ambient = 1;
+// }
 
 void	parse_ambient(char *line, t_scene *scene)
 {
@@ -23,7 +42,8 @@ void	parse_ambient(char *line, t_scene *scene)
 		return ;
 	}
 	parts = ft_split(line, ' ');
-	check_parts(parts, 3, scene);
+	if (parts_error(parts, 3, scene))
+		return ;
 	scene->ambient.ratio = safe_atof(parts[1], scene);
 	check_ratio(scene->ambient.ratio, scene);
 	scene->ambient.color = parse_color(parts[2], scene);

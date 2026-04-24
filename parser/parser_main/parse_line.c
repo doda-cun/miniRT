@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_line.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lderks <lderks@student.codam.nl>             +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/03/10 17:42:27 by doda-cun      #+#    #+#                 */
-/*   Updated: 2026/04/14 17:57:10 by lderks        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_line.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 17:42:27 by doda-cun          #+#    #+#             */
+/*   Updated: 2026/04/24 19:14:51 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,12 @@ void	strip_newline(char *line)
 {
 	int	i;
 
-	i = 0;
-	while (line[i])
+	i = ft_strlen(line) - 1;
+	while (i >= 0 && (line[i] == '\n' || line[i] == '\t'
+			|| line[i] == '\r' || line[i] == ' '))
 	{
-		if (line[i] == '\n')
-		{
-			line[i] = '\0';
-			return ;
-		}
-		i++;
+		line[i] = '\0';
+		i--;
 	}
 }
 
@@ -45,7 +42,7 @@ void	parse_line(char *line, t_scene *scene)
 		parse_cylinder(line, scene);
 	else if (line[0] != '\n' && line[0] != '\0')
 	{
-		write(2, "Error\nUnknown element in scene file\n", 36);
-		exit(1);
+		scene->parser.error = 1;
+		scene->parser.error_msg = "Unknown identifier in scene file\n";
 	}
 }
