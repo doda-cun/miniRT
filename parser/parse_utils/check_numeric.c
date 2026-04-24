@@ -17,6 +17,11 @@ void	check_numeric(char *str, t_scene *scene)
 	int	i;
 
 	i = 0;
+	if (!str)
+	{
+		missing_fields_error(scene);
+		return ;
+	}
 	if (str[i] == '-')
 		i++;
 	while (str[i])

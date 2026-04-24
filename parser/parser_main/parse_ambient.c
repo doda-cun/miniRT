@@ -40,7 +40,8 @@ void	parse_ambient(char *line, t_scene *scene)
 		exit(1);
 	}
 	parts = ft_split(line, ' ');
-	check_parts(parts, 3, scene);
+	if (parts_error(parts, 3, scene))
+		return ;
 	scene->ambient.ratio = safe_atof(parts[1], scene);
 	check_ratio(scene->ambient.ratio, scene);
 	scene->ambient.color = parse_color(parts[2], scene);
