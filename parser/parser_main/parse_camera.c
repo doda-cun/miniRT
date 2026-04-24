@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:19:54 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/23 18:36:36 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/23 18:59:45 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	parse_camera(char *line, t_scene *scene)
 
 	if (scene->parser.has_camera)
 	{
-		write(2, "Error\nCamera defined twice.\n", 28);
-		exit(1);
+		scene->parser.error = 1;
+		scene->parser.error_msg = "Camera defined twice.\n";
+		return ;
 	}
 	parts = ft_split (line, ' ');
 	check_parts(parts, 4, scene);

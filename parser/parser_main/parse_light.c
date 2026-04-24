@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 16:29:06 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/23 18:28:40 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/23 18:59:56 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	parse_light(char *line, t_scene *scene)
 
 	if (scene->parser.has_light)
 	{
-		write(2, "Error\nLight defined twice.\n", 27);
-		exit(1);
+		scene->parser.error = 1;
+		scene->parser.error_msg = "Light defined twice.\n";
+		return ;
 	}
 	parts = ft_split(line, ' ');
 	check_parts(parts, 4, scene);
