@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 18:53:57 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/24 19:28:17 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/28 12:57:32 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ double	safe_atof(char *str, t_scene *scene)
 
 	check_numeric(str, scene);
 	if (scene->parser.error)
-		return (0) ;
+		return (0);
 	if (ft_strlen(str) > 10)
 	{
 		scene->parser.error = 1;

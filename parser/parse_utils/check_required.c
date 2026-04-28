@@ -6,7 +6,7 @@
 /*   By: doda-cun <doda-cun@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:25:34 by doda-cun          #+#    #+#             */
-/*   Updated: 2026/04/24 19:41:32 by doda-cun         ###   ########.fr       */
+/*   Updated: 2026/04/28 12:58:00 by doda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ void	check_required(t_scene *scene)
 		write(2, "Error\nMissing light\n", 20);
 		exit(1);
 	}
-
 	check_count_shapes(scene);
 }
