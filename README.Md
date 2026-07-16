@@ -1,19 +1,55 @@
 *This project has been created as part of the 42 curriculum by lderks, doda-cun*
 
+# miniRT
 
-## Description
-miniRT is a basic ray tracer built in C using the MiniLibX graphics library. It renders 3D scenes defined in .rt scene files, supporting spheres, planes and cylinders with ambient lighting, diffuse shading and hard shadows.
+## What is this?
+A ray tracing engine built from scratch in C as part of the CODAM
+(42 Network) curriculum by lderks and doda-cun. Renders 3D scenes
+by simulating how light interacts with objects — the same fundamental
+technique used in CGI and movie visual effects.
 
+## How it works
+miniRT reads a .rt scene file describing objects, lights and a camera,
+then calculates for each pixel on screen whether and how a ray of light
+intersects with objects in the scene. The result is a rendered 3D image
+with realistic lighting and shadows.
 
-## Instructions
-- To use the program you have to run ./miniRT scenes/(name of scene).rt
-- Only scenes ending with the extension '.rt' will be accepted.
-- In order to render, each scene needs to have a camera, light, ambieance and at least one object.
-- Coordinates numbers, normalized numbers, FOV and color numbers all have to be in range in order to render.
+## Features
+- Supported objects: spheres, planes and cylinders
+- Ambient lighting
+- Diffuse shading
+- Hard shadows
+- Scene definition via .rt configuration files
+
+## Usage
+```bash
+make
+./miniRT scenes/(name of scene).rt
+```
+Scene requirements:
+- Must have a camera, light, ambiance and at least one object
+- Only .rt extension accepted
+- All coordinates, normalized vectors, FOV and color values must be in range
+
+## What I learned
+How ray tracing works mathematically — vector operations, dot products,
+cross products, surface normals and how light behaves in 3D space.
+Building this completely changed how I think about computer graphics
+and rendering.
 
 ## Resources
-- [HillsoftCode Ray Tracing YouTube series](https://www.youtube.com/watch?v=RIgc5J_ZGu8&t=17s) — helped organize code structure and understand the math
-- [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html) — foundational reference for ray tracing concepts
-- Claude (Anthropic) — used as an AI assistant for debugging, explaining mathematical concepts (normals, dot products, cross products), fixing compilation errors, and understanding the rendering pipeline
-- We watched a lot of different youtube videos on the matter but the most useful one was HillsoftCode's.
+- [HillsoftCode Ray Tracing YouTube series](https://www.youtube.com/watch?v=RIgc5J_ZGu8&t=17s)
+  — helped organise code structure and understand the math
+- [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
+  — foundational reference for ray tracing concepts
+- Claude (Anthropic) — used as an AI assistant for debugging, explaining
+  mathematical concepts (normals, dot products, cross products), fixing
+  compilation errors, and understanding the rendering pipeline
+
+## Personal note
+This was a challenging. Understanding how light actually behaves in 3D space and translating that into math and code was unlike anything else in the curriculum. Doing a project this
+math-heavy with no prior mathematics background was genuinely intense.
+But, not going to lie, seeing a rendered scene appear for the first time after getting the math
+right was a satisfying moment.
+
 
