@@ -31,9 +31,9 @@ Scene requirements:
 - Only .rt extension accepted
 - All coordinates, normalized vectors, FOV and color values must be in range
 
-![Ray traced scene] (images/miniRTscene1.png)
-![ray traced scene 2] (images/miniRTscene2.png)
-![ray traced scene 3] (images/miniRTscene3.png)
+![Ray traced scene](images/miniRTscene1.png)
+![Ray traced scene 2](images/miniRTscene2.png)
+![Ray traced scene 3](images/miniRTscene3.png)
 
 ## What I learned
 How ray tracing works mathematically — vector operations, dot products,
